@@ -11,19 +11,22 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
 
-    private final StudentService studentService;
+    private StudentService studentService;
 
     public StudentController(StudentService studentService) {
+
         this.studentService = studentService;
     }
 
     @PostMapping
     public Student saveOrUpdate(@RequestBody Student student) {
+
         return studentService.saveOrUpdate(student);
     }
 
     @GetMapping
     public List<Student> findAll() {
+
         return studentService.findAll();
     }
 
@@ -34,6 +37,7 @@ public class StudentController {
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id) {
+
         studentService.deleteById(id);
     }
 
